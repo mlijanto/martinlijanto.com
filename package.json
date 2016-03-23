@@ -1,0 +1,36 @@
+{
+  "name": "martinlijanto.com",
+  "description": "Martin's personal website",
+  "version": "0.0.1",
+  "author": "Martin Lijanto",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlijanto/martinlijanto.com"
+  },
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "angular2": "2.0.0-beta.6",
+    "systemjs": "0.19.20",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.14",
+    "winstrap": "^0.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-inject": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-server-livereload": "^1.7.0",
+    "gulp-typescript": "^2.11.0",
+    "typings": "^0.6.8"
+  }
+}
