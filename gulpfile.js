@@ -10,7 +10,7 @@ var paths = {
     scss: ["app/styles/**/*.scss"]
 };
 
-var tsProject = ts.createProject("tsconfig.json");
+var tsProject = ts.createProject("app/tsconfig.json");
 
 gulp.task("build-sass", function () {
     return gulp.src(paths.scss)
