@@ -8,9 +8,9 @@
     "url": "git+https://github.com/mlijanto/martinlijanto.com"
   },
   "scripts": {
-    "start": "gulp watch",
-    "build": "gulp build",
-    "postinstall": "gulp build"
+    "watch": "gulp watch",
+    "build-app": "gulp build-app",
+    "postinstall": "npm run build-app"
   },
   "license": "MIT",
   "dependencies": {

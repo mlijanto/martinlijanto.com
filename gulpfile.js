@@ -12,7 +12,7 @@ var paths = {
 
 var tsProject = ts.createProject("tsconfig.json");
 
-gulp.task("buildSass", function () {
+gulp.task("build-sass", function () {
     return gulp.src(paths.scss)
         .pipe(sass({
             includePaths: ["node_modules"],
@@ -28,16 +28,16 @@ gulp.task("buildSass", function () {
         .pipe(gulp.dest("app/styles"));
 });
 
-gulp.task("transpileTs", function () {
+gulp.task("transpile-ts", function () {
     var tsResult = gulp.src(paths.ts)
         .pipe(ts(tsProject));
 
     return tsResult.js.pipe(gulp.dest("app"));
 });
 
-gulp.task("build", [
-    "buildSass",
-    "transpileTs"
+gulp.task("build-app", [
+    "build-sass",
+    "transpile-ts"
 ]);
 
 gulp.task("server", function () {
@@ -52,7 +52,7 @@ gulp.task("server", function () {
         }));
 });
 
-gulp.task("watch", ["build", "server"], function () {
-    gulp.watch(paths.scss, ["buildSass"]);
-    gulp.watch(paths.ts, ["transpileTs"]);
+gulp.task("watch", ["build-app", "server"], function () {
+    gulp.watch(paths.scss, ["build-sass"]);
+    gulp.watch(paths.ts, ["transpile-ts"]);
 });

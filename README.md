@@ -1,1 +1,1 @@
-# [martinlijanto.com](http://www.martinlijanto.com/)
+# [martinlijanto.com](http://martinlijanto.azurewebsites.net/)
