@@ -29,7 +29,7 @@ gulp.task("build-sass", function () {
 });
 
 gulp.task("transpile-ts", function () {
-    var tsResult = gulp.src(paths.ts)
+    var tsResult = tsProject.src(paths.ts)
         .pipe(ts(tsProject));
 
     return tsResult.js.pipe(gulp.dest("app"));

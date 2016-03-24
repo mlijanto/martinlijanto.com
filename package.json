@@ -1,35 +1,38 @@
 {
-  "name": "martinlijanto.com",
-  "description": "Martin's personal website",
-  "version": "0.0.1",
-  "author": "Martin Lijanto",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mlijanto/martinlijanto.com"
-  },
-  "scripts": {
-    "typings": "typings",
-    "watch": "gulp watch",
-    "build-app": "gulp build-app",
-    "postinstall": "npm run build-app"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "angular2": "2.0.0-beta.11",
-    "systemjs": "0.19.20",
-    "concurrently": "^1.0.0",
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.35.0",
-    "gulp": "^3.9.1",
-    "gulp-cssnano": "^2.1.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.2.0",
-    "gulp-server-livereload": "^1.7.0",
-    "gulp-typescript": "^2.12.1",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.2",
-    "typings": "^0.6.8",
-    "zone.js": "^0.6.4",
-    "winstrap": "^0.5.0"
-  }
+    "name": "martinlijanto.com",
+    "description": "Martin's personal website",
+    "version": "0.0.1",
+    "author": "Martin Lijanto",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mlijanto/martinlijanto.com"
+    },
+    "engines": {
+        "node": "5.9.1"
+    },
+    "scripts": {
+        "typings": "typings",
+        "watch": "gulp watch",
+        "build-app": "gulp build-app",
+        "postinstall": "cd app && typings install && npm run build-app"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "angular2": "2.0.0-beta.11",
+        "systemjs": "0.19.20",
+        "concurrently": "^1.0.0",
+        "es6-promise": "^3.0.2",
+        "es6-shim": "^0.35.0",
+        "gulp": "^3.9.1",
+        "gulp-cssnano": "^2.1.1",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^2.2.0",
+        "gulp-server-livereload": "^1.7.0",
+        "gulp-typescript": "^2.12.1",
+        "reflect-metadata": "0.1.2",
+        "rxjs": "5.0.0-beta.2",
+        "typings": "^0.6.8",
+        "zone.js": "^0.6.4",
+        "winstrap": "^0.5.0"
+    }
 }
