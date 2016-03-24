@@ -1,6 +1,7 @@
 npm-debug.log
 deploy-creds.json
 node_modules/
+app/typings/
 
 # Transpiled .ts
 app/**/*.js

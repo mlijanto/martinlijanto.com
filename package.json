@@ -14,7 +14,7 @@
         "typings": "typings",
         "watch": "gulp watch",
         "build-app": "gulp build-app",
-        "postinstall": "cd app && typings install && npm run build-app"
+        "postinstall": "cd app && typings install && cd ../ && npm run build-app"
     },
     "license": "MIT",
     "dependencies": {
