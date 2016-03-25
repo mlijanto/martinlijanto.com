@@ -14,12 +14,12 @@ interface Project {
 }
 
 @Component({
-    selector: "app",
-    templateUrl: "app/templates/app.component.html",
-    styleUrls: ["app/styles/app.component.min.css"]
+    selector: "content",
+    templateUrl: "app/templates/content.component.html",
+    styleUrls: ["app/styles/content.component.min.css"]
 })
 
-export class AppComponent {
+export class ContentComponent {
     public title = "Hello, I\'m Martin.";
     public description = "I do front-end dev and UI design. Here are some of the projects that I\'m working on:";
     public contacts = CONTACTS;

@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Arimo:400,700);
 
+html,
+body,
+.container,
+.row {
+    height: 100%;
+}
+
 body {
     background-color: $color-background;
 }
@@ -20,4 +27,9 @@ p {
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: subpixel-antialiased;
+}
+
+.content {
+    display: table;
+    height: 100%;
 }
