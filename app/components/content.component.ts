@@ -38,16 +38,16 @@ var CONTACTS: Contact[] = [
 
 var PROJECTS: Project[] = [
     {
-        "name":         "Winstrap",
-        "description":  "Microsoft Windows Design Language theme for Bootstrap",
-        "mainUrl":      "https://github.com/winjs/winstrap",
-        "projectUrl":   "http://winstrap.azurewebsites.net/",
-        "githubUrl":    "https://github.com/winjs/winstrap"
-    }, {
         "name":         "Scrollbar of Contents",
-        "description":  "Google Chrome extension",
+        "description":  "A Google Chrome extension that creates clickable heading markers and places them next to the scrollbar.",
         "mainUrl":   "https://chrome.google.com/webstore/detail/scrollbar-of-contents/cfmkncejaemmcobmaabfigljmnkeecdm",
         "projectUrl":   "https://chrome.google.com/webstore/detail/scrollbar-of-contents/cfmkncejaemmcobmaabfigljmnkeecdm",
         "githubUrl":    "https://github.com/mlijanto/scrollbar-of-contents"
+    }, {
+        "name":         "Winstrap",
+        "description":  "Microsoft Windows Design Language theme for Bootstrap.",
+        "mainUrl":      "https://github.com/winjs/winstrap",
+        "projectUrl":   "http://winstrap.azurewebsites.net/",
+        "githubUrl":    "https://github.com/winjs/winstrap"
     }
 ]
