@@ -1,38 +1,38 @@
 {
-    "name": "martinlijanto.com",
-    "description": "Martin's personal website",
-    "version": "0.0.1",
-    "author": "Martin Lijanto",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/mlijanto/martinlijanto.com"
-    },
-    "engines": {
-        "node": "5.9.1 || 5.8.x"
-    },
-    "scripts": {
-        "typings": "typings",
-        "watch": "gulp watch",
-        "build-app": "gulp build-app",
-        "postinstall": "cd app && typings install && cd ../ && npm run build-app"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "angular2": "2.0.0-beta.11",
-        "systemjs": "0.19.20",
-        "concurrently": "^1.0.0",
-        "es6-promise": "^3.0.2",
-        "es6-shim": "^0.35.0",
-        "gulp": "^3.9.1",
-        "gulp-cssnano": "^2.1.1",
-        "gulp-rename": "^1.2.2",
-        "gulp-sass": "^2.2.0",
-        "gulp-server-livereload": "^1.7.0",
-        "gulp-typescript": "^2.12.1",
-        "reflect-metadata": "0.1.2",
-        "rxjs": "5.0.0-beta.2",
-        "typings": "^0.6.8",
-        "zone.js": "^0.6.4",
-        "winstrap": "^0.5.0"
-    }
+  "name": "martinlijanto.com",
+  "description": "Martin Lijanto",
+  "version": "0.1.0",
+  "author": "Martin Lijanto",
+  "repository": "git+https://github.com/mlijanto/martinlijanto.com.git",
+  "scripts": {
+    "dev": "webpack-dev-server --progress",
+    "build": "webpack --progress",
+    "build:prod": "cross-env NODE_ENV=production webpack --progress -p"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "normalize.css": "^7.0.0",
+    "preact": "^8.1.0",
+    "preact-compat": "^3.16.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "favicons-webpack-plugin": "^0.0.7",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.5.3",
+    "path": "^0.12.7",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "suncalc": "^1.8.0",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0",
+    "workbox-webpack-plugin": "^1.0.1"
+  },
+  "main": "index.js"
 }
