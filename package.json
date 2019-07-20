@@ -1,38 +1,57 @@
 {
   "name": "martinlijanto.com",
-  "description": "Martin Lijanto",
-  "version": "0.1.0",
-  "author": "Martin Lijanto",
-  "repository": "git+https://github.com/mlijanto/martinlijanto.com.git",
+  "version": "7.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress",
-    "build": "webpack --progress",
-    "build:prod": "cross-env NODE_ENV=production webpack --progress -p"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlijanto/martinlijanto.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlijanto/martinlijanto.com/issues"
+  },
+  "homepage": "https://github.com/mlijanto/martinlijanto.com#readme",
   "dependencies": {
-    "normalize.css": "^7.0.0",
-    "preact": "^8.1.0",
-    "preact-compat": "^3.16.0"
+    "@zeit/next-css": "^1.0.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "cross-env": "^5.0.1",
-    "css-loader": "^0.28.4",
-    "favicons-webpack-plugin": "^0.0.7",
-    "file-loader": "^0.11.2",
-    "html-webpack-plugin": "^2.29.0",
-    "node-sass": "^4.5.3",
-    "path": "^0.12.7",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
-    "suncalc": "^1.8.0",
-    "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.5.0",
-    "workbox-webpack-plugin": "^1.0.1"
+    "@types/node": "^12.6.3",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.2.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.3"
   },
-  "main": "index.js"
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "useTabs": false,
+    "bracketSpacing": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js, json, ts, tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
 }
