@@ -29,7 +29,7 @@ steps:
 
   - task: AzureRmWebAppDeployment@3
     inputs:
-      azureSubscription: "Proteus Azure RM"
+      azureSubscription: "Visual Studio Ultimate with MSDN"
       WebAppName: "martinlijanto"
       Package: $(System.ArtifactsDirectory)/**/$(Build.BuildId).zip
     displayName: "Deploy build files"
