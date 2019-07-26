@@ -1,5 +1,34 @@
 import React from "react";
+import styled from "styled-components";
 import { breakpoints, IColors } from "../scripts/variables";
+
+const Heading = styled.h1`
+  position: relative;
+  margin: 0;
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.036em;
+  z-index: 1;
+
+  @media (min-width: ${breakpoints.vp1}px) {
+    font-size: 64px;
+  }
+
+  @media (min-width: ${breakpoints.vp2}px) {
+    font-size: 74px;
+  }
+
+  @media (min-width: ${breakpoints.vp4}px) {
+    font-size: 84px;
+  }
+`;
+
+const Last = styled.span<{ color: string }>`
+  display: block;
+  margin-left: -3px;
+  color: ${props => props.color};
+`;
 
 interface IHelloProps {
   colors: IColors;
@@ -11,40 +40,7 @@ interface IHelloProps {
 
 export default class Hello extends React.Component<IHelloProps> {
   public render(): JSX.Element {
-    return (
-      <>
-        <h1>{this.generateWelcomeMessage()}</h1>
-        <style jsx>{`
-          h1 {
-            position: relative;
-            margin: 0;
-            font-size: 60px;
-            font-weight: 900;
-            line-height: 0.8;
-            letter-spacing: -0.036em;
-            z-index: 1;
-          }
-
-          @media (min-width: ${breakpoints.vp1}px) {
-            h1 {
-              font-size: 64px;
-            }
-          }
-
-          @media (min-width: ${breakpoints.vp2}px) {
-            h1 {
-              font-size: 74px;
-            }
-          }
-
-          @media (min-width: ${breakpoints.vp4}px) {
-            h1 {
-              font-size: 84px;
-            }
-          }
-        `}</style>
-      </>
-    );
+    return <Heading>{this.generateWelcomeMessage()}</Heading>;
   }
 
   private generateWelcomeMessage = (): JSX.Element => {
@@ -180,14 +176,7 @@ export default class Hello extends React.Component<IHelloProps> {
         <br />
         {second}
         <br />
-        <span>{third}.</span>
-        <style jsx>{`
-          span {
-            display: block;
-            margin-left: -3px;
-            color: ${this.props.colors.background};
-          }
-        `}</style>
+        <Last color={this.props.colors.background}>{third}.</Last>
       </>
     );
   };
@@ -202,35 +191,27 @@ export default class Hello extends React.Component<IHelloProps> {
     switch (day) {
       case 0:
         return "Sunday";
-        break;
 
       case 1:
         return "Monday";
-        break;
 
       case 2:
         return "Tuesday";
-        break;
 
       case 3:
         return "Wednesday";
-        break;
 
       case 4:
         return "Thursday";
-        break;
 
       case 5:
         return "Friday";
-        break;
 
       case 6:
         return "Saturday";
-        break;
 
       default:
         return "";
-        break;
     }
   };
 
