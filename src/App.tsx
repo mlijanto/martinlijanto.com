@@ -187,7 +187,7 @@ class App extends React.Component<any, IAppStates> {
   }
 
   private getWeatherData = async (): Promise<any | null> => {
-    return await fetch("http://api.ipstack.com/check?access_key=97e2c7f76cda32d0f609ed71eb31a751")
+    return await fetch("https://api.ipgeolocation.io/ipgeo?apiKey=d5881f3f27784a8f8d0d1e2930819aad")
       .then((res: Response) => {
         return res.json();
       })
@@ -195,7 +195,7 @@ class App extends React.Component<any, IAppStates> {
         const location: any = JSON.parse(JSON.stringify(locationJSON));
 
         return fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${location.city},${location.country_code}&appid=875ec7cd0ebdf3e110e473f7a3c2a42e&units=imperial`
+          `https://api.openweathermap.org/data/2.5/weather?q=${location.city},${location.country_code2}&appid=875ec7cd0ebdf3e110e473f7a3c2a42e&units=imperial`
         );
       })
       .then((res: Response) => {
