@@ -117,43 +117,42 @@ interface IAppStates {
 }
 
 class App extends React.Component<any, IAppStates> {
-  public componentDidMount(): void {
-    this.getWeatherData().then((weatherData: any): void => {
-      const queryParams: URLSearchParams = new URLSearchParams(this.props.location.search);
+  public async componentDidMount(): Promise<void> {
+    const weatherData = await this.getWeatherData();
+    const queryParams: URLSearchParams = new URLSearchParams(this.props.location.search);
 
-      const isDaytime: boolean =
-        queryParams.get("isDaytime") !== null
-          ? queryParams.get("isDaytime") === "true"
-            ? true
-            : false
-          : weatherData
-          ? this.getIsDaytime(weatherData.sys.sunrise, weatherData.sys.sunset)
-          : true;
+    const isDaytime: boolean =
+      queryParams.get("isDaytime") !== null
+        ? queryParams.get("isDaytime") === "true"
+          ? true
+          : false
+        : weatherData
+        ? this.getIsDaytime(weatherData.sys.sunrise, weatherData.sys.sunset)
+        : true;
 
-      const colors: IColors =
-        queryParams.get("colorTheme") !== null
-          ? colorThemes[queryParams.get("colorTheme")!]
-          : isDaytime
-          ? colorThemes.light
-          : colorThemes.dark;
+    const colors: IColors =
+      queryParams.get("colorTheme") !== null
+        ? colorThemes[queryParams.get("colorTheme")!]
+        : isDaytime
+        ? colorThemes.light
+        : colorThemes.dark;
 
-      const weatherId: number =
-        queryParams.get("weatherId") !== null
-          ? parseInt(queryParams.get("weatherId")!, 10)
-          : weatherData
-          ? weatherData.weather[0].id
-          : 0;
+    const weatherId: number =
+      queryParams.get("weatherId") !== null
+        ? parseInt(queryParams.get("weatherId")!, 10)
+        : weatherData
+        ? weatherData.weather[0].id
+        : 0;
 
-      const day: string | undefined = queryParams.get("day") !== null ? queryParams.get("day")! : undefined;
-      const time: string | undefined = queryParams.get("time") !== null ? queryParams.get("time")! : undefined;
+    const day: string | undefined = queryParams.get("day") !== null ? queryParams.get("day")! : undefined;
+    const time: string | undefined = queryParams.get("time") !== null ? queryParams.get("time")! : undefined;
 
-      this.setState({
-        isDaytime,
-        colors,
-        weatherId,
-        day,
-        time
-      });
+    this.setState({
+      isDaytime,
+      colors,
+      weatherId,
+      day,
+      time
     });
   }
 
@@ -186,28 +185,17 @@ class App extends React.Component<any, IAppStates> {
     );
   }
 
-  private getWeatherData = async (): Promise<any | null> => {
-    return await fetch("https://api.ipgeolocation.io/ipgeo?apiKey=d5881f3f27784a8f8d0d1e2930819aad")
-      .then((res: Response) => {
-        return res.json();
-      })
-      .then((locationJSON: Promise<JSON>) => {
-        const location: any = JSON.parse(JSON.stringify(locationJSON));
+  private getWeatherData = async (): Promise<any> => {
+    const ip: string = await (await fetch("https://api.ipify.org/")).text();
+    const location = await (await fetch(
+      `https://api.ipgeolocation.io/ipgeo?apiKey=d5881f3f27784a8f8d0d1e2930819aad&ip=${ip}`
+    )).json();
 
-        return fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${location.city},${location.country_code2}&appid=875ec7cd0ebdf3e110e473f7a3c2a42e&units=imperial`
-        );
-      })
-      .then((res: Response) => {
-        return res.json();
-      })
-      .then((weatherJSON: Promise<JSON>) => {
-        return JSON.parse(JSON.stringify(weatherJSON));
-      })
-      .catch((error: Error) => {
-        console.error("Error fetching weather data", error);
-        return null;
-      });
+    const weather = await (await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${location.city},${location.country_code2}&appid=875ec7cd0ebdf3e110e473f7a3c2a42e&units=imperial`
+    )).json();
+
+    return weather;
   };
 
   private getIsDaytime = (sunriseUtc: number, sunsetUtc: number): boolean => {
