@@ -1,8 +1,15 @@
 {
   "editor.formatOnSave": true,
-  "editor.tabSize": 2,
   "typescript.referencesCodeLens.enabled": true,
-  "files.exclude": {
-    "node_modules": true
+  "explorer.fileNesting.patterns": {
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock",
+    "*.ts": "${capture}ViewModel.ts,${capture}.*.ts"
+  },
+  "explorer.fileNesting.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.associations": {
+    "*.json": "jsonc"
   }
 }
